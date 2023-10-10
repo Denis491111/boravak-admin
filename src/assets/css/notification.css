@@ -1,0 +1,120 @@
+.zoran-alerts-container {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    width: calc(100% - 64px);
+    max-width: 340px;
+    pointer-events: none;
+    z-index: 20;
+}
+.zoran-alerts-container__item {
+    position: relative;
+    min-width: 250px;
+    max-width: 100%;
+    width: auto;
+    display: table;
+    margin-left: auto;
+    padding: 10px 38px 10px 14px;
+    font-size: 16px;
+    line-height: 1.25;
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    animation: alertItemShow .25s ease 0s 1 normal both;
+    box-shadow: 0px 0px 1px rgba(46, 56, 75, 0.24), 0px 4px 12px rgba(46, 56, 75, 0.08);
+    pointer-events: all;
+}
+
+.zoran-alerts-container__item[closed] {
+    animation: alertItemHide .08s ease 0s 1 normal both;
+}
+
+.zoran-alerts-container__item-text {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.zoran-alerts-container__item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.zoran-alerts-container__item-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.zoran-alerts-container__item-remover {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    border-radius: 5px;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.6665 2.66666L13.3332 13.3333' stroke='%239EA5B5' stroke-opacity='0.72' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M13.3335 2.66666L2.66683 13.3333' stroke='%239EA5B5' stroke-opacity='0.72' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.zoran-alerts-container__item-remover:hover {
+    background-color: rgba(0,0,0, 0.1);
+}
+
+.zoran-alerts-container__item_error {
+    background-color: #EB3B41;
+    color: #FFFFFF;
+}
+
+.zoran-alerts-container__item_error .zoran-alerts-container__item-remover,
+.zoran-alerts-container__item_success .zoran-alerts-container__item-remover {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.72'%3E%3Cpath d='M2.6665 2.66669L13.3332 13.3334' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M13.3335 2.66669L2.66683 13.3334' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.zoran-alerts-container__item_success {
+    color: #ffffff;
+    background-color: #24B47A;
+}
+
+@media screen and (max-width: 767px) {
+    .zoran-alerts-container {
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+/**
+ * Animations
+ */
+
+@keyframes alertItemShow {
+    0% {
+        margin-top: -48px;
+        transform: translateY(8px) scale(.95);
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes alertItemHide {
+    0% {
+        margin-top: 0;
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        margin-top: -64px;
+        transform: translateY(8px) scale(.95);
+        opacity: 0;
+    }
+}
