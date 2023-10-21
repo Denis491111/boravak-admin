@@ -247,8 +247,8 @@ export default class UserCard extends Vue {
       },
       {
         name: "Статус оплаты",
-        value: this.user.yokassa_payment_id ? "Оплата прошла" : "Не происходило оплаты",
-        success: this.user.yokassa_payment_id
+        value: this.user.yokassa_payment_id && this.user.current_state.type === 2 ? "Оплата прошла" : "Не происходило оплаты",
+        success: this.user.yokassa_payment_id && this.user.current_state.type === 2
       },
       {
         name: "Текущий этап",

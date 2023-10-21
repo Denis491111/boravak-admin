@@ -41,7 +41,7 @@ export default class UsersPage extends Vue {
   beforeMount() {
     request("/dictionary/cities").then(cities => {
       this.cities = cities;
-      request("/users").then(res => {
+      request("/users?limit=200").then(res => {
         this.users = res.results.filter(el => el.role === "user").reverse();
         this.isLoading = false;
       });
