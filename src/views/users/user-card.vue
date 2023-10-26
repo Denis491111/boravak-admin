@@ -84,6 +84,11 @@
         Документы
       </Button>
       <Button
+          @click="sendVideo"
+      >
+        Отправить видео
+      </Button>
+      <Button
         v-if="(user.info.legal_address || {}).is_contract_checking"
         :secondary="true"
         @click="acceptContractOffice"
@@ -330,6 +335,16 @@ export default class UserCard extends Vue {
           window.location.reload();
         }, 2000);
       });
+    })
+  }
+
+  sendVideo() {
+    request(`/sender/promovideo`, "POST", {
+      id: this.user.id,
+      name: this.user.info.name,
+      email: this.user.email
+    }).then(res => {
+      alert("Видео отправлено");
     })
   }
 }
