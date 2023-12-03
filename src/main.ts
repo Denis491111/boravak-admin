@@ -12,6 +12,7 @@ import Link from "@/components/link.vue";
 import Selector from "@/components/selector.vue";
 import Textarea from "@/components/textarea.vue";
 import Loader from "@/components/loader.vue";
+import Checkbox from "@/components/checkbox.vue";
 import { VueMaskDirective } from "v-mask";
 
 Vue.config.productionTip = false;
@@ -26,6 +27,7 @@ Vue.component("Link", Link);
 Vue.component("Selector", Selector);
 Vue.component("Textarea", Textarea);
 Vue.component("Loader", Loader);
+Vue.component("Checkbox", Checkbox);
 
 new Vue({
   router,
